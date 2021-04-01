@@ -10,5 +10,11 @@ namespace LinkedList
         public Node<T> last { get; private set; }
 
         public int Length { get; private set; }
+        public LinkedList()
+        {
+            first = null;
+            last = null;
+            Length = 0;
+        }
     }
 }

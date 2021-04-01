@@ -22,5 +22,11 @@ namespace LinkedList
             last = node;
             Length = 1;
         }
+        public bool IsEmpty() 
+        {
+            if (Length == 0)
+                return true;
+            return false;
+        }
     }
 }

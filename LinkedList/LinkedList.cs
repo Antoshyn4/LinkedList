@@ -28,5 +28,17 @@ namespace LinkedList
                 return true;
             return false;
         }
+        public void Print()
+        {
+            if (!IsEmpty())
+            {
+                for (Node<T> i = first; i != null; i = i.next)
+                {
+                    Console.WriteLine(i.data);
+                }
+            }
+            else
+                Console.WriteLine("Error, List is empty");
+        }
     }
 }

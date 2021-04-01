@@ -6,9 +6,9 @@ namespace LinkedList
 {
     class Node<T>
     {
-        private T data { get; }
+        public T data { get; }
 
-        private Node<T> next { set; get; }
+        public Node<T> next { set; get; }
         
         public Node (T value)
         {

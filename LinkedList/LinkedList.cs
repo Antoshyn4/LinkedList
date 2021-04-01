@@ -106,6 +106,32 @@ namespace LinkedList
             }
             return -1;
         }
-        
+        public void Deleteitem(T item)
+        {
+            if (Length == 1 && item.Equals(first))
+            {
+                first = null;
+                last = null;
+                Length = 0;
+                return;
+            }
+            int p = IndexOf(item);
+            if (p == 0)
+            {
+                first = first.next;
+                Length--;
+                return;
+            }
+            for (Node<T> i = first; i != null; i = i.next)
+            {
+                if (p == 1)
+                {
+                    i.next = i.next.next;
+                    Length--;
+                    return;
+                }
+                p--;
+            }
+        }
     }
 }

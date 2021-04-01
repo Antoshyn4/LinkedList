@@ -40,5 +40,21 @@ namespace LinkedList
             else
                 Console.WriteLine("Error, List is empty");
         }
+        public void Add(T data)
+        {
+            var node = new Node<T>(data);
+            if (IsEmpty())
+            {
+                first = node;
+                last = node;
+                Length = 1;
+            }
+            else
+            {
+                last.next = node;
+                last = node;
+                Length++;
+            }
+        }
     }
 }

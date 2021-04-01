@@ -6,7 +6,15 @@ namespace LinkedList
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-        }
+            var list = new LinkedList<int>();
+            list.Add(1);
+            list.Add(2);
+            list.Add(10);
+            list.Add(3);
+            list.Add(-1);
+            list.Add(12);
+            list.Deleteitem(12);
+            list.Print();
+        }   
     }
 }

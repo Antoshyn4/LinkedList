@@ -15,6 +15,9 @@ namespace LinkedList
             list.Add(12);
             list.Deleteitem(12);
             list.Print();
-        }   
+            var L1 = new LinkedList<int>();
+            L1 = list.reverse_copy();
+            L1.Print();
+        }
     }
 }

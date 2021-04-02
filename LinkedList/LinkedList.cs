@@ -41,6 +41,7 @@ namespace LinkedList
             else
                 Console.WriteLine("Error, List is empty");
         }
+        
         public void Add(T data)
         {
             var node = new Node<T>(data);
@@ -92,6 +93,23 @@ namespace LinkedList
                 Length++;
             }
         }
+        public void Add(T data, int m)
+        {
+            var node = new Node<T>(data);
+            if (IsEmpty())
+            {
+                first = node;
+                last = node;
+                Length = 1;
+                return;
+            }
+            else
+            {
+                node.next = first;
+                first = node;
+            }
+            Length++;
+        }
         public int IndexOf(T item)
         {
             var node = new Node<T>(item);
@@ -126,12 +144,25 @@ namespace LinkedList
             {
                 if (p == 1)
                 {
+                    if (i.next == last)
+                    {
+                        last = i;
+                    }
                     i.next = i.next.next;
                     Length--;
                     return;
                 }
                 p--;
             }
+        }
+        public LinkedList<T> reverse_copy()
+        {
+            var L1 = new LinkedList<T>();
+            for (Node<T> i = this.first; i != null; i = i.next)
+            {
+                L1.Add(i.data, 0);
+            }
+            return L1;
         }
     }
 }

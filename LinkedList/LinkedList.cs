@@ -6,10 +6,51 @@ namespace LinkedList
 {
     class LinkedList<T> where T : IComparable
     {
-        public Node<T> first { get; private set; }
-        public Node<T> last { get; private set; }
+        public Node<T> first { get; set; }
+        public Node<T> last { get; set; }
         public int Length { get; private set; }
-        
+        public void z(T data)
+        {
+            Node<T> node = new Node<T>(data);
+            for (Node<T> i = first; i != null; i = i.next)
+            {
+                if (node.data.CompareTo(i.data) >= 0 && i.next == null || node.data.CompareTo(i.next.data) <= 0)
+                {
+                    node.next = i.next;
+                    i.next = node;
+                    break;
+                }
+            }
+        }
+        public void bubblesort()
+        {
+            int i = 1; 
+            var node = first;
+            for (Node<T> z = node.next; z.next != null; z = z.next)
+            {
+                if (node.data.CompareTo(z.next.data) == 1)
+                {
+                    T data = z.next.data;
+                    z.next.data = node.data;
+                    node.data = data;
+                }
+            }
+            node = first;
+            while (i != Length)
+            {
+                for (Node<T> z = node.next; z.next != null; z = z.next)
+                {
+                    if (node.next.data.CompareTo(z.next.data) == 1)
+                    {
+                        T data = z.next.data;
+                        z.next.data = node.next.data;
+                        node.next.data = data;
+                    }
+                }
+                node = node.next;
+                i++;
+            }
+        }
         public LinkedList()
         {
             first = null;
@@ -19,7 +60,7 @@ namespace LinkedList
         public LinkedList(T data)
         {
             var node = new Node<T>(data);
-            first = node;
+            first = node;   
             last = node;
             Length = 1;
         }
@@ -33,7 +74,7 @@ namespace LinkedList
         {
             if (!IsEmpty())
             {
-                for (Node<T> i = first; i != null; i = i.next)
+                for (var i = first; i != null; i = i.next)
                 {
                     Console.WriteLine(i.data);
                 }
@@ -41,7 +82,6 @@ namespace LinkedList
             else
                 Console.WriteLine("Error, List is empty");
         }
-        
         public void Add(T data)
         {
             var node = new Node<T>(data);
@@ -82,7 +122,7 @@ namespace LinkedList
                 {
                     for (Node<T> i = first; i != null; i = i.next)
                     {
-                        if (node.data.CompareTo(i.data) >= 0 && node.data.CompareTo(i.next.data) <= 0)
+                        if (node.data.CompareTo(i.data) >= 0 && i.next == null || node.data.CompareTo(i.next.data) <= 0)
                         {
                             node.next = i.next;
                             i.next = node;

@@ -6,7 +6,7 @@ namespace LinkedList
 {
     class Node<T>
     {
-        public T data { get; }
+        public T data { get; set; }
 
         public Node<T> next { set; get; }
 
@@ -14,6 +14,10 @@ namespace LinkedList
         {
             data = value;
         }
-
+        public Node (Node<T> node)
+        {
+            data = node.data;
+            next = node.next;
+        }
     }
 }
